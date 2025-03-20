@@ -6,38 +6,28 @@ Be sure to implement all the PIOT-GDA-* issues.
 
 ### Description
 
-NOTE: Include two full paragraphs describing your implementation approach by answering the questions listed below.
+Se ha creado un módulo denominado SystemPerformanceManager, encargado de programar y ejecutar tareas periódicas para recolectar métricas esenciales como la utilización de la CPU y de la memoria.
 
-What does your implementation do? 
-
-How does your implementation work?
+La clase base BaseSystemUtilTask proporciona la funcionalidad común para todas las tareas de monitorización, mientras que las clases especializadas SystemCpuUtilTask y SystemMemUtilTask se encargan de recoger, respectivamente, las métricas de CPU y memoria.
 
 ### Code Repository and Branch
 
-NOTE: Be sure to include the branch.
+URL: https://github.com/santipvz/java-components
 
-URL: 
+Branch: Branch: (Pongo la default porque se me olvidó crear una branch especifica para esto.)
 
 
 ### Unit Tests Executed
 
-NOTE: The instructor will execute your unit tests. You only need to list each test case below
-(e.g. ConfigUtilTest, DataUtilTest, etc). Be sure to include all previous tests, too,
-since you need to ensure you haven't introduced regressions.
+- ConfigUtilTest
+- SystemCpuUtilTaskTest
+- SystemMemUtilTaskTest
 
-- 
-- 
-- 
 
 ### Integration Tests Executed
 
-NOTE: The instructor will execute most of your integration tests using their own environment, with
-some exceptions (such as your cloud connectivity tests). In such cases, they'll review
-your code to ensure it's correct. As for the tests you execute, you only need to list each
-test case below (e.g. SensorSimAdapterManagerTest, DeviceDataManagerTest, etc.)
+- GatewayDeviceAppTest
+- SystemPerformanceManagerTest
 
-- 
-- 
-- 
 
 EOF.
