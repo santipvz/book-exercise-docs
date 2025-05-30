@@ -6,39 +6,34 @@ Be sure to implement all the PIOT-CDA-* issues (requirements) listed.
 
 ### Description
 
-NOTE: Include two full paragraphs describing your implementation approach by answering the questions listed below.
+La implementación desarrolla un sistema de gestión de datos para dispositivos IoT que permite la recolección, procesamiento y transmisión de datos de sensores. El sistema implementa un patrón de diseño basado en adaptadores que permite la integración de diferentes tipos de sensores y la comunicación con servicios en la nube. La arquitectura está diseñada para ser modular y extensible, permitiendo la fácil adición de nuevos tipos de sensores y protocolos de comunicación.
 
-What does your implementation do? 
-
-How does your implementation work?
 
 ### Code Repository and Branch
 
-NOTE: Be sure to include the branch.
-
-URL: 
-
-
+URL: https://github.com/santipvz/python-components
+Branch: labmodule09
 
 ### Unit Tests Executed
 
-NOTE: The instructor will execute your unit tests. You only need to list each test case below
-(e.g. ConfigUtilTest, DataUtilTest, etc). Be sure to include all previous tests, too,
-since you need to ensure you haven't introduced regressions.
-
-- 
-- 
-- 
+- ConfigUtilTest
+- DataUtilTest
+- SensorDataTest
+- SystemPerformanceDataTest
+- SystemStateDataTest
+- BaseDeviceSimulatorTest
+- SensorSimAdapterManagerTest
+- DeviceDataManagerTest
+- CloudClientConnectorTest
+- MqttClientConnectorTest
+- CoapClientConnectorTest
 
 ### Integration Tests Executed
 
-NOTE: The instructor will execute most of your integration tests using their own environment, with
-some exceptions (such as your cloud connectivity tests). In such cases, they'll review
-your code to ensure it's correct. As for the tests you execute, you only need to list each
-test case below (e.g. SensorSimAdapterManagerTest, DeviceDataManagerTest, etc.)
-
-- 
-- 
-- 
+- SensorSimAdapterManagerTest
+- DeviceDataManagerTest
+- CloudClientConnectorTest
+- MqttClientConnectorTest
+- CoapClientConnectorTest
 
 EOF.

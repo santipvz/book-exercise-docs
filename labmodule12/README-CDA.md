@@ -6,38 +6,22 @@ Be sure to implement all the PIOT-CDA-* issues (requirements) listed.
 
 ### Description
 
-NOTE: Include two full paragraphs describing your implementation approach by answering the questions listed below.
+La implementación del CDA (Constrained Device Application) proporciona una solución completa para la gestión de dispositivos IoT, incluyendo la recolección de datos de sensores, monitoreo del rendimiento del sistema, y control de actuadores. El sistema está diseñado para funcionar de manera autónoma, procesando datos en tiempo real y tomando decisiones basadas en umbrales predefinidos.
 
-What does your implementation do? 
-
-How does your implementation work?
+La implementación funciona mediante un sistema de gestión de eventos basado en intervalos de tiempo, donde el SensorAdapterManager y SystemPerformanceManager operan en paralelo cada 5 segundos. El sistema monitorea la temperatura y otros parámetros del sistema, activando actuadores cuando se cruzan umbrales predefinidos (por ejemplo, cuando la temperatura supera los 25°C). La comunicación con el GDA se realiza de forma segura utilizando MQTT con TLS, asegurando la integridad y confidencialidad de los datos transmitidos.
 
 ### Code Repository and Branch
 
-NOTE: Be sure to include the branch.
-
-URL: 
-
+URL: https://github.com/santipvz/python-components
+Branch: labmodule12
 
 ### Unit Tests Executed
 
-NOTE: The instructor will execute your unit tests. You only need to list each test case below
-(e.g. ConfigUtilTest, DataUtilTest, etc). Be sure to include all previous tests, too,
-since you need to ensure you haven't introduced regressions.
 
-- 
-- 
-- 
 
 ### Integration Tests Executed
 
-NOTE: The instructor will execute most of your integration tests using their own environment, with
-some exceptions (such as your cloud connectivity tests). In such cases, they'll review
-your code to ensure it's correct. As for the tests you execute, you only need to list each
-test case below (e.g. SensorSimAdapterManagerTest, DeviceDataManagerTest, etc.)
-
-- 
-- 
-- 
+- SystemTest
+- ThresholdActuationTest
 
 EOF.

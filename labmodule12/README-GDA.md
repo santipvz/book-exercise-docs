@@ -1,44 +1,105 @@
-# Gateway Device Application (Connected Devices)
+# GDA - Gateway Device Application
 
-## Lab Module 12 - Semester Project - GDA Components
+## Overview
+La aplicación Gateway Device (GDA) ha sido implementada como un componente central que actúa como intermediario entre los dispositivos restringidos (CDA) y los servicios en la nube. La implementación incluye todas las funcionalidades requeridas para la gestión de datos, comunicación y procesamiento de eventos.
 
-Be sure to implement all the PIOT-GDA-* issues (requirements) listed.
+## Requirements
+- Java 11 o superior
+- Maven 3.6 o superior
+- Conexión a Internet para servicios en la nube
+- Puerto 56830 disponible para CoAP
+- Puerto 1883 disponible para MQTT
 
-### Description
+## Design
+La arquitectura del GDA se ha implementado siguiendo un diseño modular y extensible:
 
-NOTE: Include two full paragraphs describing your implementation approach by answering the questions listed below.
+1. **Conexiones**:
+   - CoAP Server: Implementado en `CoapServerGateway.java` para comunicación con CDA
+   - MQTT Client: Implementado en `MqttClientConnector.java` para comunicación con la nube
+   - Configuración de puertos y seguridad en `PiotConfig.props`
 
-What does your implementation do? 
+2. **Gestión de Datos**:
+   - `DeviceDataManager`: Centraliza el procesamiento de datos
+   - `SystemPerformanceManager`: Monitorea el rendimiento del sistema
+   - `DataUtil`: Utilidades para el manejo de datos
 
-How does your implementation work?
+3. **Procesamiento de Eventos**:
+   - Análisis de datos de sensores
+   - Generación de eventos de actuación
+   - Manejo de comandos de la nube
 
-### Code Repository and Branch
+## Implementation
+La implementación incluye:
 
-NOTE: Be sure to include the branch.
+1. **Conexiones Seguras**:
+   - CoAP: Puerto 56830 con autenticación y encriptación deshabilitadas para pruebas
+   - MQTT: Conexión segura al broker local en puerto 1883
 
-URL: 
+2. **Procesamiento de Datos**:
+   - Almacenamiento local de datos de sensores
+   - Monitoreo de rendimiento del sistema
+   - Análisis de datos para generación de eventos
 
+3. **Integración con Servicios**:
+   - Conexión con Ubidots para almacenamiento en la nube
+   - Manejo de eventos y comandos de la nube
+   - Gestión de respuestas de actuadores
 
+## Testing
+Se han implementado pruebas integrales en `GatewayDeviceAppTest.java` que verifican:
 
-### Unit Tests Executed
+1. **Conexiones**:
+   - Inicialización correcta del servidor CoAP
+   - Conexión exitosa al broker MQTT
+   - Manejo de recursos CoAP
 
-NOTE: The instructor will execute your unit tests. You only need to list each test case below
-(e.g. ConfigUtilTest, DataUtilTest, etc). Be sure to include all previous tests, too,
-since you need to ensure you haven't introduced regressions.
+2. **Procesamiento de Datos**:
+   - Recepción y procesamiento de datos de sensores
+   - Manejo de comandos de actuadores
+   - Almacenamiento local de datos
 
-- 
-- 
-- 
+3. **Eventos**:
+   - Generación de eventos basados en datos
+   - Manejo de comandos de la nube
+   - Respuestas a actuadores
 
-### Integration Tests Executed
+## Configuration
+La configuración se maneja a través de `PiotConfig.props`:
 
-NOTE: The instructor will execute most of your integration tests using their own environment, with
-some exceptions (such as your cloud connectivity tests). In such cases, they'll review
-your code to ensure it's correct. As for the tests you execute, you only need to list each
-test case below (e.g. SensorSimAdapterManagerTest, DeviceDataManagerTest, etc.)
+1. **CoAP**:
+   - Puerto: 56830
+   - Autenticación: Deshabilitada
+   - Encriptación: Deshabilitada
 
-- 
-- 
-- 
+2. **MQTT**:
+   - Broker: localhost:1883
+   - Credenciales: Cargadas desde `UbidotsCloudCred.props`
+
+3. **Almacenamiento**:
+   - Persistencia local habilitada
+   - Envío a la nube configurado
+
+## Usage
+Para ejecutar el GDA:
+
+1. **Compilación**:
+   ```bash
+   mvn clean install
+   ```
+
+2. **Ejecución**:
+   ```bash
+   mvn exec:java -Dexec.mainClass="programmingtheiot.gda.app.GatewayDeviceApp"
+   ```
+
+3. **Pruebas**:
+   ```bash
+   mvn test -Dtest=GatewayDeviceAppTest
+   ```
+
+## Notes
+- El GDA está diseñado para ser escalable y mantener un alto rendimiento
+- La implementación actual está optimizada para pruebas y desarrollo
+- Se recomienda habilitar la seguridad en producción
 
 EOF.
